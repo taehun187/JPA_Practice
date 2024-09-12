@@ -1,1 +1,1 @@
-# JPA_Practice
+# JPA_Practice 연습해보았습니다
