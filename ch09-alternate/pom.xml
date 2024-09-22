@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.taehun</groupId>
+	<artifactId>ch06-one2many-undirectional</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+
+		<property name="javax.persistence.jdbc.driver"
+			value="com.mysql.jdbc.Driver" />
+		<property name="javax.persistence.jdbc.user" value="root" />
+		<property name="javax.persistence.jdbc.password" value="1234" />
+		<property name="javax.persistence.jdbc.url"
+			value="jdbc:mysql://localhost:3306/sbdt_db?characterEncoding=UTF-8" />
+		<!--            MySQL 버전에 따라 해당 Direct 버전을 사용해야 한다-->
+		<!--            <property name="hibernate.dialect"
+		value="org.hibernate.dialect.MySQLDialect"/>-->
+		<property name="hibernate.dialect"
+			value="org.hibernate.dialect.MySQL8Dialect" />
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- JPA, 하이버네이트 버전 -->
+		<hibernate.version>5.6.15.Final</hibernate.version>
+		<!-- 데이터베이스 버전 -->
+		<h2db.version>2.2.224</h2db.version>
+
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.30</version> <!-- 최신 버전 사용 -->
+			<scope>compile</scope>
+		</dependency>
+		<!-- JPA, 하이버네이트 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- H2 데이터베이스 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2db.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>
