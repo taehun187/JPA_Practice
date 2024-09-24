@@ -23,39 +23,34 @@ import lombok.Setter;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-public class Member extends BaseEntity{
-	
+public class Member extends BaseEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="MEMBER_ID")
+	@Column(name = "MEMBER_ID")
 	private Long id;
-	
-	@Embedded
-	private Address address; //JPA 는 스냅샷으로 address 참조 필드의 "주소" 값 변경을 체크!!
-							// address 의 필드[Street/..] 변경 사항은 체크하지 않음
-	
+
 	private String name;
-	
+
 	private Integer age;
-	
-	
+
+	@Embedded
+	private Address address;
+
+	@ElementCollection
+	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<AddressEntity> addressList = new ArrayList<>(); // 수정: AddressEntity를 참조하게 변경
+
+
+	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<FavoriteFood> favoriteFoods = new HashSet<>();
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "TEAM_ID")
+	@JoinColumn(name = "team_id")
 	private Team team;
-	
-	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<FavoriteFood> favoriteFoods = new ArrayList<>();
-	
-	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<AddressEntity> addressList = new ArrayList<>();
-	
+
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", name=" + name + "  age = " +  age + "]";
+		return "Member [id=" + id + ", name=" + name + ", age= " + age + "]";
 	}
-	
-
-	
-	
-
 }

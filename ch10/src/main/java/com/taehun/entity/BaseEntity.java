@@ -23,15 +23,14 @@ import lombok.Setter;
 public class BaseEntity {
 
 	private String createBy;
-	
-	@CreationTimestamp
-	private LocalDateTime creationData;
-	
-	private String lastModifiedBy;
-	
-	@UpdateTimestamp
-	private LocalDateTime lastModified;
 
-	
-	
+	@CreationTimestamp
+	private LocalDateTime creationDate;
+
+	private String lastModifiedBy;
+
+	@UpdateTimestamp
+	private LocalDateTime lastModifiedDate;
+
+
 }

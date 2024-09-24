@@ -18,44 +18,35 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "Teams")
+@Table(name="TEAMS")
+@Entity
 public class Team {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="TEAM_ID")
 	private Long id;
-	
+
 	private String name;
-	
-	@OneToMany(mappedBy = "team")
+
+	@OneToMany(mappedBy="team")
 	private List<Member> memberList = new ArrayList<>();
+
+	public void addMember(Member member) {
+		member.setTeam(this);
+		memberList.add(member);
+
+	}
+	public void removeMember(Member member) {
+		memberList.remove(member);
+		member.setTeam(null);
+	}
 
 	@Override
 	public String toString() {
-		return "Team [id=" + 
-				id
-				+ ", name=" +
-				name
-				+ 
-				"member" +
-				memberList.size()
-				+
-				"]";
+		return "Team [id=" + id + ", name=" + name + ", member Numbers=" + memberList.size() + "]";
 	}
-	
-	public void addMember (Member mem)
-	{
-		mem.setTeam(this);
-		memberList.add(mem);
-	}
-	
-	public void removeMember(Member mem)
-	{
-		memberList.remove(mem);
-		mem.setTeam(null);
-	}
-	
+
 }
