@@ -41,9 +41,4 @@
 1. **JPA 설정**: `persistence.xml` 파일에서 데이터베이스 연결 정보를 설정합니다.
 2. **코드 실행**: `Main` 클래스를 실행하여 `Member`와 `Team` 엔티티 간의 관계 설정 및 CRUD 작업을 수행할 수 있습니다.
 
-## 주의사항
-- 프로젝트에서 사용된 JPA 관련 설정 및 데이터베이스 연결 정보는 `persistence.xml`에 정의되어 있습니다. 해당 파일에서 적절한 데이터베이스 URL과 사용자 정보를 설정해 주세요.
-- 데이터베이스와의 트랜잭션 관리가 이루어지지 않을 경우 `EntityManager`가 올바르게 닫히지 않아 오류가 발생할 수 있으니, `try-catch-finally` 블록을 통해 트랜잭션 처리를 관리해 주세요.
 
-## License
-This project is licensed under the MIT License.
