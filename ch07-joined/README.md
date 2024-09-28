@@ -31,12 +31,17 @@
 - JPA를 활용하여 엔티티를 저장하고 조회하는 예제 코드가 포함되어 있습니다.
 
 ## 실행 예시
+### 앨범과 책 데이터 저장 및 조회
+
+```java
+// 앨범 데이터 저장
 Album album = new Album();
 album.setName("haris");
 album.setPrice(15000);
 album.setArtist("kim");
 em.persist(album);
 
+// 책 데이터 저장
 Book book = new Book();
 book.setName("haris");
 book.setPrice(15000);
