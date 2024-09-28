@@ -35,3 +35,6 @@
 1. 프로젝트를 클론합니다.
    ```bash
    git clone [repository_url]
+
+2. 데이터베이스 설정을 persistence.xml 파일에서 변경합니다.
+3. 프로젝트를 실행하여 JPA 엔티티가 잘 저장되는지 확인합니다.
