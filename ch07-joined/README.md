@@ -30,11 +30,20 @@
 ### 5. `Main`
 - JPA를 활용하여 엔티티를 저장하고 조회하는 예제 코드가 포함되어 있습니다.
 
-## 사용 방법
+## 실행 예시
+Album album = new Album();
+album.setName("haris");
+album.setPrice(15000);
+album.setArtist("kim");
+em.persist(album);
 
-1. 프로젝트를 클론합니다.
-   ```bash
-   git clone [repository_url]
+Book book = new Book();
+book.setName("haris");
+book.setPrice(15000);
+book.setAuthor("kim");
+book.setIsbn("12345");
+em.persist(book);
 
-2. 데이터베이스 설정을 persistence.xml 파일에서 변경합니다.
-3. 프로젝트를 실행하여 JPA 엔티티가 잘 저장되는지 확인합니다.
+// 저장된 데이터 조회
+Item item = em.find(Item.class, book.getId());
+
